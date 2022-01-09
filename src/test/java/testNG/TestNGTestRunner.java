@@ -27,7 +27,7 @@ public class TestNGTestRunner extends BasePage {
         setUpBrowser();
     }
 
-    @Test
+    @Test (description = "user with invalid email should not be able to login")
     public void unsuccessfulLoginEmailTest() {
         Log.startTestCase("Unsuccessful Login with invalid Email Test");
         driver.get(UtilityPage.readConfig("url"));
@@ -38,7 +38,7 @@ public class TestNGTestRunner extends BasePage {
         Log.endTestCase("Unsuccessful Login with invalid Email Test");
     }
 
-    @Test(dependsOnMethods = "unsuccessfulLoginEmailTest")
+    @Test(dependsOnMethods = "unsuccessfulLoginEmailTest", description = "user with valid email should be able to login")
     public void successfulLoginEmailTest() {
         Log.startTestCase("Successful Login with valid Email Test");
         driver.get(UtilityPage.readConfig("url"));
@@ -49,7 +49,7 @@ public class TestNGTestRunner extends BasePage {
         Log.endTestCase("Successful Login with valid Email Test");
     }
 
-    @Test(dependsOnMethods = "successfulLoginEmailTest")
+    @Test(dependsOnMethods = "successfulLoginEmailTest", description = "user should be able to create new note")
     public void createNewNoteTest() {
         Log.startTestCase("Create New Note Test");
         CreateNotePage createNotePage = new CreateNotePage(driver);
@@ -62,7 +62,7 @@ public class TestNGTestRunner extends BasePage {
         Log.endTestCase("Create New Note Test");
     }
 
-    @Test(dependsOnMethods = "createNewNoteTest")
+    @Test(dependsOnMethods = "createNewNoteTest", description = "newly created note should be opened after login")
     public void openNewlyCreatedNoteTest() {
         Log.startTestCase("Open Newly Created Note Test");
         driver.get(UtilityPage.readConfig("url"));
@@ -74,7 +74,7 @@ public class TestNGTestRunner extends BasePage {
         Log.endTestCase("Open Newly Created Note Test");
     }
 
-    @Test(dependsOnMethods = "openNewlyCreatedNoteTest")
+    @Test(dependsOnMethods = "openNewlyCreatedNoteTest", description = "user should be able to delete newly created note")
     public void deleteNoteTest() {
         Log.startTestCase("Delete Newly Created Note Test");
         DeleteNotePage deleteNotePage = new DeleteNotePage(driver);

@@ -12,18 +12,12 @@ public class Log {
         Log.info("*****************************************************************************************");
         Log.info("$$$ " + startedTestCaseName + " has been started $$$");
         Log.info("*****************************************************************************************");
-
-
-
     }
 
     public static void endTestCase(String endedTestCaseName){
         Log.info("*****************************************************************************************");
         Log.info("∆∆∆ " + endedTestCaseName + " has been successfully completed ∆∆∆");
         Log.info("*****************************************************************************************");
-
-
-
     }
 
     public static void info(String message) {
